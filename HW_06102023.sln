@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_06102023", "HW_06102023\HW_06102023.csproj", "{B19C1344-8804-4FFC-A0E3-28A22FCC4FC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RickAndMorty_API_CORE", "RickAndMorty_API_CORE\RickAndMorty_API_CORE.csproj", "{E18973B4-974A-459F-85CA-B02B9E8DB2B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B19C1344-8804-4FFC-A0E3-28A22FCC4FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19C1344-8804-4FFC-A0E3-28A22FCC4FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19C1344-8804-4FFC-A0E3-28A22FCC4FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19C1344-8804-4FFC-A0E3-28A22FCC4FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18973B4-974A-459F-85CA-B02B9E8DB2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18973B4-974A-459F-85CA-B02B9E8DB2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18973B4-974A-459F-85CA-B02B9E8DB2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18973B4-974A-459F-85CA-B02B9E8DB2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DFD6FA5-D6A5-4AF8-91AC-96308C5D37A0}
+	EndGlobalSection
+EndGlobal
