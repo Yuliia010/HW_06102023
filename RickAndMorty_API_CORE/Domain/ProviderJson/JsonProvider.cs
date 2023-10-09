@@ -18,7 +18,6 @@ namespace RickAndMorty_API_CORE.Domain.ProviderJson
             int maxPages = int.Parse(info["pages"].ToString());
             return maxPages;
         }
-
        
         public static List<Character> FromJsonToCharacterList(string json)
         {

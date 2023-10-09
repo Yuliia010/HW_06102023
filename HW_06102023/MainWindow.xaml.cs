@@ -140,11 +140,15 @@ namespace HW_06102023
                 }
                 else
                 {
-                    List<Character> FindCharacters = FindCharacterList(tb_Find.Text);
+                    //List<Character> FindCharacters = FindCharacterList(tb_Find.Text);
 
-                    ItemsContainer.ItemsSource = FindCharacters;
+                    var pageResult = engine.GetFind(tb_Find.Text);
+                    sorted = JsonProvider.FromJsonToCharacterList(pageResult);
+                    ItemsContainer.ItemsSource = sorted;
                     lb_curPage.Content = string.Empty;
                     lb_maxPage.Content = string.Empty;
+                    btn_Next.IsEnabled = false;
+                    btn_Prev.IsEnabled = false;
                 }
             }
         }
@@ -199,61 +203,23 @@ namespace HW_06102023
 
         }
 
-        
-        private async Task Sort(string sortedSTR, string type)
-        {
-            sorted = new List<Character>();
 
-            foreach (Character character in allCharacters)
-            {
-                switch (type)
-                {
-                    case "Status":
-                        if(character.Status.Equals(sortedSTR, StringComparison.OrdinalIgnoreCase))
-                        {
-                            sorted.Add(character);
-                        }
-                        
-                        break;
-                    case "Location":
-                        if (character.Location.Equals(sortedSTR, StringComparison.OrdinalIgnoreCase))
-                        {
-                            sorted.Add(character);
-                        }
-                       
-                        break;
-                    case "Species":
-                        if (character.Species.Equals(sortedSTR, StringComparison.OrdinalIgnoreCase))
-                        {
-                            sorted.Add(character);
-                        }
-                        
-                        break;
-                    case "Gender":
-                       if (character.Gender.Equals(sortedSTR, StringComparison.OrdinalIgnoreCase))
-                        {
-                            sorted.Add(character);
-                        }
-                        
-                        break;
-                }
-            }
-        }
-
-        private async void menu_Click(object sender, RoutedEventArgs e)
+        private void menu_Click(object sender, RoutedEventArgs e)
         {
             MenuItem menuItem = sender as MenuItem;
             
             MenuItem parent = menuItem.Parent as MenuItem;
             ItemsContainer.ItemsSource = null;
             menu_sort.Header = menuItem.Header;
+
             if (menuItem.Header.Equals("All"))
             {
                 UpdatePage();
             }
             else
             {
-                await Sort((string)menuItem.Header, (string)parent.Header);
+                var pageResult = engine.GetSorted(menuItem.Header.ToString().ToLower(), parent.Header.ToString().ToLower());
+                sorted = JsonProvider.FromJsonToCharacterList(pageResult);
                 ItemsContainer.ItemsSource = sorted;
                 lb_curPage.Content = string.Empty;
                 lb_maxPage.Content = string.Empty;

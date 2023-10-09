@@ -29,6 +29,21 @@ namespace RickAndMorty_API_CORE.Data.API
             var content = response.Result.Content.ReadAsStringAsync();
             return content.Result.ToString();
         }
+
+        public string GetSorted(string sortStr, string type)
+        {
+            var response = client.SendAsync(new HttpRequestMessage(HttpMethod.Get, BaseUri + $"character?{type}=" + sortStr));
+           
+            var content = response.Result.Content.ReadAsStringAsync();
+            return content.Result.ToString();
+        }
+        public string GetFind(string sortStr)
+        {
+            var response = client.SendAsync(new HttpRequestMessage(HttpMethod.Get, BaseUri + $"character?name=" + sortStr));
+
+            var content = response.Result.Content.ReadAsStringAsync();
+            return content.Result.ToString();
+        }
         void IAPI.GetCharacter(int id)
         {
             throw new NotImplementedException();
