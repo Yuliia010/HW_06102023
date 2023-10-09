@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace RickAndMorty_API_CORE.Data.API
             //    result += "Status Code 200 - OK";
             //    result += "\n";
             //}
+           
             var content = response.Result.Content.ReadAsStringAsync();
             return content.Result.ToString();
         }

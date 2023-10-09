@@ -10,11 +10,22 @@ namespace RickAndMorty_API_CORE.Domain.ProviderJson
 {
     public sealed class JsonProvider
     {
+        public static int MaxPagesInJson(string json)
+        {
+            JObject keyValuePairs = JObject.Parse(json);
+            JToken info = keyValuePairs["info"];
+
+            int maxPages = int.Parse(info["pages"].ToString());
+            return maxPages;
+        }
+
+       
         public static List<Character> FromJsonToCharacterList(string json)
         {
             List<Character> characters = new List<Character>();
             JObject keyValuePairs = JObject.Parse(json);
             IList<JToken> results = keyValuePairs["results"].Children().ToList();
+           
             List<string> class_params = new List<string>();
             foreach (JToken token in results)
             {
